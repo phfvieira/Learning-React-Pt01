@@ -1,8 +1,8 @@
-import { useEffect, useState, useCallback } from 'react';
+//import { useEffect, useState, useCallback } from 'react';
 
 import './styles.css';
-
-import { loadPosts } from '../../utils/load-posts';
+import { Component } from "react";
+/* import { loadPosts } from '../../utils/load-posts';
 import { Posts } from '../../components/Posts';
 import { Button } from '../../components/Button';
 import { TextInput } from '../../components/TextInput';
@@ -84,7 +84,7 @@ export const Home = () => {
   );
 };
 
-export default Home;
+export default Home; */
 
 /* class Home2 extends Component {
   state = {
@@ -174,3 +174,31 @@ export default Home;
 
 export default Home;
  */
+
+export class Home extends Component {
+  state = {
+    counter: 0
+  }
+
+  handleClick = () => {
+    this.setState(
+      (prevState, prevProps) => {
+        return { counter: prevState.counter + 1 }
+      },
+      () => {
+        console.log(this.state.counter);
+      }
+    );
+
+  }
+
+  render() {
+    return (
+      <div className='container'>
+        <h1>{this.state.counter}</h1>
+        <button onClick={this.handleClick}>increment</button>
+      </div>
+    );
+  }
+}
+export default Home;
